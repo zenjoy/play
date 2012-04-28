@@ -18,9 +18,11 @@ $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'app'))
 
 require 'boot'
 require 'helpers/http'
+require 'helpers/itunes'
 require 'helpers/utility'
 
 include Play
 include Play::HTTPHelpers
+include Play::ItunesHelpers
 include Play::UtilityHelpers
 include Rack::Test::Methods

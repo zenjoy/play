@@ -30,7 +30,6 @@ module Play
     #   Calculate how many songs kept as history:
     #     playlist_offset - 1
     #
-    #
     # Returns Integer offset to queued songs.
     def self.playlist_offset
       Player.app.current_track.index.get
@@ -107,6 +106,5 @@ module Play
       }
       Yajl.dump hash
     end
-
   end
 end

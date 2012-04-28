@@ -2,13 +2,10 @@ require File.expand_path("../helper", __FILE__)
 
 context "Queue" do
   setup do
-    @song = Song.new \
-              :id     => 'xyz',
-              :artist => 'Justice',
-              :name   => 'Stress'
+    itunes_setup
   end
 
-  test "nothing" do
-    assert true
+  test "name" do
+    assert_equal 'iTunes DJ', Play::Queue.name
   end
 end
