@@ -12,7 +12,6 @@ require 'mocha'
 require 'spec/mini'
 
 ENV['RACK_ENV'] = 'test'
-ENV['CI'] = '1' if !RUBY_PLATFORM.downcase.include?("darwin")
 
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'app'))
@@ -54,7 +53,3 @@ def unauthorized_get(uri, opts={})
   rack_env = {"HTTP_AUTHORIZATION" => "xxxxxxxxxxxxxxxxxx"}
   get uri, opts, rack_env
 end
-
-
-
-
