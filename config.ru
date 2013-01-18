@@ -1,4 +1,5 @@
 require File.expand_path(File.dirname(__FILE__) + '/app/play')
+require File.expand_path(File.dirname(__FILE__) + '/app/api')
 require 'sprockets'
 
 assets = Sprockets::Environment.new
@@ -8,4 +9,6 @@ assets.append_path 'app/assets/fonts'
 
 map("/assets")   { run assets }
 
-map('/')         { run Play::App }
+run Rack::URLMap.new \
+  "/"    => Play::App.new,
+  "/api" => Play::Api.new
