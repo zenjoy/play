@@ -30,7 +30,7 @@ else
   if ENV["BOXEN_SOCKET_DIR"]
     listen "#{ENV['BOXEN_SOCKET_DIR']}/play", :backlog => 2048
   else
-    listen "127.0.0.1:9393"
+    listen "127.0.0.1:3030"
   end
 end
 
