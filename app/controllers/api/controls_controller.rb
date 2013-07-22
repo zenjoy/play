@@ -12,7 +12,7 @@ class Api::ControlsController < Api::BaseController
 
   def next
     Play.mpd.next
-    deliver_json(200, {:message => 'ok'})
+    song = PlayQueue.now_playing
+    deliver_json(200, song.try(:to_hash))
   end
-
 end

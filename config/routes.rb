@@ -67,11 +67,13 @@ Play::Application.routes.draw do
     get "/queue" => 'queue#list', :as => 'queue'
     post "/queue/add" => 'queue#add', :as => 'add_queue'
     post "/queue/remove" => 'queue#remove', :as => 'remove_queue'
-    post "/queue/clear" => 'queue#clear', :as => 'clear_queue'
+    delete "/queue" => 'queue#clear', :as => 'clear_queue'
 
     # system
     get "/stream" => 'system#stream', :as => 'stream'
-    put "/volume" => 'system#volume', :as => 'volume'
+    get "/stream_url" => 'system#stream_url', :as => 'stream_url'
+    put "/volume" => 'system#set_volume', :as => 'set_volume'
+    get "/volume" => 'system#volume', :as => 'volume'
 
     get "/" => "base#test"
   end
