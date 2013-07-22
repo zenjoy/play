@@ -1,6 +1,7 @@
 <%
+  return if !Play.mpd
   song = PlayQueue.songs.first
-  return if !song
+  return if !song || !flash[:error].blank?
 %>
 <div id="sidebar">
   <div class="now-playing">
