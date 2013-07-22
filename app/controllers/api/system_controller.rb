@@ -7,5 +7,8 @@ class Api::SystemController < Api::BaseController
   def upload
   end
 
-
+  def volume
+    Play.mpd.volume = params[:volume].to_i
+    deliver_json(200, {:message => 'ok', :volume => Play.mpd.volume })
+  end
 end

@@ -58,6 +58,10 @@ Play::Application.routes.draw do
     post "/pause" => 'controls#pause', :as => 'pause'
     post "/next" => 'controls#next', :as => 'next'
 
+    # searching
+    post "/search" => 'queue#search', :as => 'search_songs'
+    post "/search/add" => 'queue#search_and_add', :as => 'search_and_add_songs'
+
     # queue
     get "/now_playing" => 'queue#now_playing', :as => 'now_playing'
     get "/queue" => 'queue#list', :as => 'queue'
@@ -67,6 +71,7 @@ Play::Application.routes.draw do
 
     # system
     get "/stream" => 'system#stream', :as => 'stream'
+    put "/volume" => 'system#volume', :as => 'volume'
 
     get "/" => "base#test"
   end
