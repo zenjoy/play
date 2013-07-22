@@ -198,4 +198,19 @@ class Song
   def to_param
     title.gsub('/','%2F')
   end
+
+  # Hash representation of the song.
+  #
+  # Returns a Hash.
+  def to_hash
+    { :title => title,
+      :album_name => album.name,
+      :album_slug => album.to_param,
+      :artist_name => artist.name,
+      :artist_slug => artist.to_param,
+      :album_art_path => "/images/art/#{album.art}",
+      :seconds => seconds,
+      :slug => to_param
+    }
+  end
 end
